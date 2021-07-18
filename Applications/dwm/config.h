@@ -7,10 +7,10 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font Mono:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray3[]       = "#ffffff";
+static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#ff4500";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -29,7 +29,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "svkbd",    NULL,       "Xenon Keyboard", 0,      0,           -1 },
+	{ "svkbd",    NULL,       "Xenon Keyboard", 0,      1,           -1 },
 };
 
 /* layout(s) */
@@ -61,16 +61,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 // Vince's Programs
-static const char *shadowbrowsercmd[] = { "ShadowBrowser", NULL };
+//static const char *shadowbrowsercmd[] = { "ShadowBrowser", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
+static const char *shutdowncmd[] = { "xe-shutdown", NULL };
 
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shadowbrowsercmd } },
+//	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shadowbrowsercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } },
+	{ MODKEY|ShiftMask,             XK_Escape, spawn,          {.v = shutdowncmd } },
 	
 	// Shift tags
 	{ MODKEY|ShiftMask,             XK_o,      shiftview,      {.i = -1} },

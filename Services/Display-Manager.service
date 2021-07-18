@@ -1,0 +1,12 @@
+[Unit]
+Description=My Display Manager
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=/home/pi/ACE/display-manager/display-manager
+Restart=on-failure
+User=root
+Type=simple
+
+[Install]
+Alias=display-manager.service
