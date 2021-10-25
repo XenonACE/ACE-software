@@ -3,7 +3,7 @@ CC = gcc
 all: settings
 
 settings: main.c
-	$(CC) -o $@ -lace $^
+	$(CC) -o $@ $^ -lace
 
 .PHONY: clean install uninstall
 
