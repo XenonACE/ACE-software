@@ -2,5 +2,5 @@
 #include <ACE.h>
 
 int main() {
-	printf("%s", getKernelVersion());
+	printKernelVersion();
 }
