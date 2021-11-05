@@ -1,0 +1,19 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-I/usr/include/freetype2",
+      "-I/usr/include/libpng16",
+      "-I/usr/include/harfbuzz",
+      "-I/usr/include/glib-2.0",
+      "-I/usr/lib/glib-2.0/include",
+      "-o",
+      "test",
+      "main.c"
+    ],
+    "directory": "/home/vince/Projects/Xenon/ACE-software/test",
+    "file": "/home/vince/Projects/Xenon/ACE-software/test/main.c",
+    "output": "/home/vince/Projects/Xenon/ACE-software/test/test"
+  }
+]
