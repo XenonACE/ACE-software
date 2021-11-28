@@ -3,7 +3,7 @@ CC = gcc
 all: setup
 
 setup: main.c
-	$(CC) -o $@ $^ -lace
+	$(CC) -o $@ $^ -lace -lpthread
 
 .PHONY: clean install uninstall
 
