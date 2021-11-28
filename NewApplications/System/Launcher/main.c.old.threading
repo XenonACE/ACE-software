@@ -1,0 +1,42 @@
+#include <ACE.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <sys/types.h>
+
+#define TEMPBGCOLOR 0xFFFFFF
+#define TEMPFGCOLOR 0x222222
+
+void startapp() {
+	
+}
+
+int main() {
+
+	pthread_t thread;
+	int err = pthread_create(&thread, NULL, startapp, NULL);
+
+	if (err) {
+		fprintf(stderr, "Error making new thread to manage apps");
+		exit(1);
+	}
+
+	//printf("%i\n", getFgColor());
+
+	//int fgColor = getFgColor();
+	//int bgColor = getBgColor();
+
+#include "icon.xpm"
+	hWindow *win = createWindow(50, 50, 405, 720, "Launcher", TEMPBGCOLOR, TEMPFGCOLOR, 200, 200, 0, icon_xpm, NULL);
+
+	addRectFill(win, 0, 0, 405, 720, 0xff4500);
+	//addTextCentered(win, 0, 0, -2, 200, "Xenon Setup", fgColor, DTFONT("40"));
+
+	addButton(win, 10, 10, 200, 100, "kill", TEMPFGCOLOR, TEMPBGCOLOR, 0, 1, 0, DFONT("30"), NULL, NULL);
+
+	//addButton(win, 10, 300 - scrolloffset, 300, 30, "I am button", TEMPFGCOLOR, TEMPBGCOLOR, 0, 0, 1, DFONT("17"), hideWindowBtnCallback, scr);
+
+	eventLoop(win, NULL, NULL);
+	destroyWindow(win);
+	return 0;
+}

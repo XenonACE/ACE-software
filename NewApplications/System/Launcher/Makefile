@@ -1,17 +1,17 @@
 CC = gcc
 
-all: setup
+all: launcher
 
-setup: main.c
-	$(CC) -o $@ $^ -lace
+launcher: main.c
+	$(CC) -o $@ $^ -lace -lpthread
 
 .PHONY: clean install uninstall
 
 clean:
-	rm -f setup
+	rm -f launcher
 
-install: setup
-	cp -f setup /usr/local/bin
+install: launcher
+	cp -f launcher /usr/local/bin
 
 uninstall:
-	rm -f /usr/local/bin/setup
+	rm -f /usr/local/bin/launcher
