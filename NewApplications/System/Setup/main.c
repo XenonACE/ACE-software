@@ -7,7 +7,7 @@
 #define TEMPBGCOLOR 0xFFFFFF
 #define TEMPFGCOLOR 0x222222
 
-#include "lightvdark.xpm"
+//#include "lightvdark.xpm"
 
 hWindow *win;
 
@@ -20,13 +20,16 @@ void themeWin() {
 
 	addButton(themeWin, -100, -40, 90, 30, "Next", 0x448AFF, 0xFFFFFF, 0, 1, 0, DFONT("20"), NULL, NULL);
 
-	addXPM(themeWin, 0, 40, _a1cb07e80804801de6c52dd4a1bb315Zmh6yxbTGC6MiRyN, 0xFFFFFF, NULL, NULL);
+	addButton(themeWin, 10, 200, 100, 100, "Light", 0xFFFFFF, 0x000000, 0, 1, 1, DFONT("20"), NULL, NULL);
+	addButton(themeWin, -110, 200, 100, 100, "Dark", 0x000000, 0xFFFFFF, 0, 1, 1, DFONT("20"), NULL, NULL);
+
+	//addXPM(themeWin, 0, 40, _a1cb07e80804801de6c52dd4a1bb315Zmh6yxbTGC6MiRyN, 0xFFFFFF, NULL, NULL);
 
 	eventLoop(themeWin, NULL, NULL);
 	destroyWindow(themeWin);
 }
 
-void nextCallback() {
+/*void nextCallback() {
 	//Create a new thread here
 	pthread_t thread;
 	int err = pthread_create(&thread, NULL, themeWin, NULL);
@@ -35,7 +38,7 @@ void nextCallback() {
 		fprintf(stderr, "Error making new thread\n");
 		exit(1);
 	}
-}
+}*/
 
 int main() {
 
@@ -55,7 +58,7 @@ int main() {
 	addTextCentered(win, 0, 200, -1, 250, welcomeString, 0x000000, DFONT("20"));
 	addTextBlock(win, 10, 250, -1, 750, "Welcome to your new phone, the phone you recieved is in a beta state so don't expect everything to be perfect. There will be crashes, errors, problems, the whole nine yards. If you have any issues, use the feedback app in your application drawer and I'll get on it as fast as I can. You could also just scream at me on Snapchat but I prefer the feedback app. Sorry that the font looks like garbage right now, this is just an inherint issue with the rendering system of this phone. It'll be fixed soon, and it shouldn't affect Android apps, Just a few things to setup before the phone is yours.", 0x000000, ' ', DTFONT("18"));
 
-	addButton(win, -100, -40, 90, 30, "Next", 0x448AFF, 0xFFFFFF, 0, 1, 0, DFONT("20"), nextCallback, NULL);
+	addButton(win, -100, -40, 90, 30, "Next", 0x448AFF, 0xFFFFFF, 0, 1, 0, DFONT("20"), themeWin, NULL);
 
 	//addButton(win, 10, 300 - scrolloffset, 300, 30, "I am button", TEMPFGCOLOR, TEMPBGCOLOR, 0, 0, 1, DFONT("17"), hideWindowBtnCallback, scr);
 
